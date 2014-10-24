@@ -1,20 +1,20 @@
-package com.daniel.readingbook.app.database;
+package com.daniel.readingbook.book1.database;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
-import com.daniel.readingbook.app.database.table.Book;
+import com.daniel.readingbook.book1.database.table.Book;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
-public class Database extends SQLiteAssetHelper {
-    private static final String TAG = Database.class.getSimpleName();
+public class MyDatabase extends SQLiteAssetHelper {
+    private static final String TAG = MyDatabase.class.getSimpleName();
 
     private static final String DATABASE_NAME = "database.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 10;
 
-    public Database(Context context) {
+    public MyDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
