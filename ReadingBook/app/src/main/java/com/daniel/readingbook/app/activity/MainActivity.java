@@ -1,8 +1,10 @@
-package com.daniel.readingbook.app;
+package com.daniel.readingbook.app.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+
+import com.daniel.readingbook.app.R;
 
 public class MainActivity extends ActionBarActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
