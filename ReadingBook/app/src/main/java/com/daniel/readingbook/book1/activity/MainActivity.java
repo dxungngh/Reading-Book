@@ -1,5 +1,6 @@
 package com.daniel.readingbook.book1.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -46,7 +47,8 @@ public class MainActivity extends ActionBarActivity {
         mReadBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                startActivity(intent);
             }
         });
     }
