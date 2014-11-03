@@ -6,6 +6,7 @@ import android.widget.ListView;
 
 import com.daniel.readingbook.book1.R;
 import com.daniel.readingbook.book1.database.MyDatabaseHelper;
+import com.daniel.readingbook.book1.database.table.Chapter;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class IndexActivity extends ActionBarActivity {
     }
 
     private void initData() {
-        MyDatabaseHelper.getMyDatabase(this).getBook();
+        mChapters = MyDatabaseHelper.getMyDatabase(this).getAllChapters();
     }
 
     private void setComponentView() {

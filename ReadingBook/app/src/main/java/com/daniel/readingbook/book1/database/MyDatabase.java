@@ -6,7 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
 import com.daniel.readingbook.book1.database.table.Book;
+import com.daniel.readingbook.book1.database.table.Chapter;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
+import java.util.ArrayList;
 
 public class MyDatabase extends SQLiteAssetHelper {
     private static final String TAG = MyDatabase.class.getSimpleName();
@@ -44,5 +47,30 @@ public class MyDatabase extends SQLiteAssetHelper {
         book.setType(cursor.getString(5));
 
         return book;
+    }
+
+    public ArrayList<Chapter> getAllChapters() {
+        SQLiteDatabase database = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {
+            Chapter.Fields.ID,
+            Chapter.Fields.NAME,
+            Chapter.Fields.CONTENT};
+        String sqlTables = Chapter.TABLE_NAME;
+
+        queryBuilder.setTables(sqlTables);
+        Cursor cursor = queryBuilder.query(database, sqlSelect, null, null, null, null, null);
+
+        ArrayList<Chapter> chapters = new ArrayList<Chapter>();
+        while (cursor.moveToNext()) {
+            Chapter chapter = new Chapter();
+            chapter.setId(cursor.getLong(0));
+            chapter.setName(cursor.getString(1));
+            chapter.setContent(cursor.getString(2));
+            chapters.add(chapter);
+        }
+
+        return chapters;
     }
 }
