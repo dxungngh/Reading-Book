@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/row_album"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/row_chapter_height"
+                android:background="@drawable/bg_row_chapter"
+                android:clickable="true">
+
+    <ImageView
+        android:id="@+id/row_chapter_thumbnail"
+        android:layout_width="@dimen/row_chapter_thumbnail_width"
+        android:layout_height="@dimen/row_chapter_thumbnail_height"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/row_chapter_padding_left"
+        android:layout_marginRight="@dimen/row_chapter_padding_right"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/row_chapter_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/row_chapter_thumbnail"
+        style="@style/Title.ChapterName"/>
+
+</RelativeLayout>

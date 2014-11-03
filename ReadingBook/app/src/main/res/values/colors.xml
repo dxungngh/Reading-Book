@@ -5,4 +5,8 @@
     <!-- button -->
     <color name="transparent_eighty_percent">#80FFFFFF</color>
     <color name="transparent_blue_eighty_percent">#8000CC66</color>
+
+    <color name="gray">#C0C0C0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#00CC66</color>
 </resources>

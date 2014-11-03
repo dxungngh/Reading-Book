@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
 import com.daniel.readingbook.book1.R;
+import com.daniel.readingbook.book1.adapter.ChapterAdapter;
 import com.daniel.readingbook.book1.database.MyDatabaseHelper;
 import com.daniel.readingbook.book1.database.table.Chapter;
 
@@ -15,6 +16,7 @@ public class IndexActivity extends ActionBarActivity {
 
     private ListView mChaptersListView;
     private ArrayList<Chapter> mChapters;
+    private ChapterAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,12 @@ public class IndexActivity extends ActionBarActivity {
 
         initData();
         setComponentView();
+        drawComponentView();
+    }
+
+    private void drawComponentView() {
+        mAdapter = new ChapterAdapter(this, mChapters);
+        mChaptersListView.setAdapter(mAdapter);
     }
 
     private void initData() {
