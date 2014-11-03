@@ -14,6 +14,7 @@
         <item name="android:textSize">@dimen/large_text</item>
         <item name="android:textColor">@color/main_text</item>
         <item name="android:layout_marginBottom">@dimen/main_button_padding_bottom</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>
