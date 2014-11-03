@@ -35,6 +35,7 @@ public class ChapterHolder extends BaseContentHolder {
 
     private void drawComponentView() {
         mName.setText(mChapter.getName());
+        mThumbnail.setImageResource(R.drawable.ic_launcher);
     }
 
     @Override
