@@ -14,8 +14,11 @@ import com.daniel.readingbook.book1.R;
 import com.daniel.readingbook.book1.activity.ChapterActivity;
 import com.daniel.readingbook.book1.database.table.Chapter;
 
+import java.util.ArrayList;
+
 public class ChapterHolder extends BaseContentHolder {
     private Chapter mChapter;
+    private ArrayList<Chapter> mChapters;
     private Context mContext;
     private ChapterHolder mHolder;
     private TextView mName;
@@ -24,8 +27,9 @@ public class ChapterHolder extends BaseContentHolder {
 
     private static final String TAG = ChapterHolder.class.getSimpleName();
 
-    public ChapterHolder(Context context, Chapter chapter) {
+    public ChapterHolder(Context context, ArrayList<Chapter> chapters, Chapter chapter) {
         mChapter = chapter;
+        mChapters = chapters;
         mContext = context;
         mHolder = this;
     }
@@ -67,6 +71,7 @@ public class ChapterHolder extends BaseContentHolder {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, ChapterActivity.class);
                 intent.putExtra(Config.Extras.CHAPTER, mChapter);
+                intent.putExtra(Config.Extras.LIST_OF_CHAPTERS, mChapters);
                 mContext.startActivity(intent);
             }
         });

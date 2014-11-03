@@ -2,12 +2,16 @@ package com.daniel.readingbook.book1.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daniel.readingbook.book1.Config;
 import com.daniel.readingbook.book1.R;
 import com.daniel.readingbook.book1.database.table.Chapter;
+
+import java.util.ArrayList;
 
 public class ChapterActivity extends ActionBarActivity {
     private static final String TAG = ChapterActivity.class.getSimpleName();
@@ -15,6 +19,8 @@ public class ChapterActivity extends ActionBarActivity {
     private TextView mTitleTextView;
     private WebView mContentWebView;
     private Chapter mChapter;
+    private ArrayList<Chapter> mChapters;
+    private ImageView mNextButton, mBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +41,44 @@ public class ChapterActivity extends ActionBarActivity {
 
     private void initData() {
         mChapter = (Chapter) getIntent().getSerializableExtra(Config.Extras.CHAPTER);
+        mChapters = (ArrayList<Chapter>) getIntent().getSerializableExtra(Config.Extras.LIST_OF_CHAPTERS);
     }
 
     private void setComponentViews() {
         mTitleTextView = (TextView) findViewById(R.id.chapter_title);
         mContentWebView = (WebView) findViewById(R.id.chapter_content);
+        mNextButton = (ImageView) findViewById(R.id.chapter_next);
+        mBackButton = (ImageView) findViewById(R.id.chapter_back);
     }
 
     private void setListeners() {
+        setNextListener();
+        setBackListener();
+    }
+
+    private void setNextListener() {
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int nextPosition = (int) mChapter.getId();
+                if (mChapters.size() > nextPosition) {
+                    mChapter = mChapters.get(nextPosition);
+                    drawComponentView();
+                }
+            }
+        });
+    }
+
+    private void setBackListener() {
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int backPosition = (int) mChapter.getId() - 2;
+                if (backPosition >= 0) {
+                    mChapter = mChapters.get(backPosition);
+                    drawComponentView();
+                }
+            }
+        });
     }
 }

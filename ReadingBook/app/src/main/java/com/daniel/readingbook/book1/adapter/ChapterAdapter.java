@@ -9,16 +9,16 @@ import android.widget.BaseAdapter;
 import com.daniel.readingbook.book1.database.table.Chapter;
 import com.daniel.readingbook.book1.holder.ChapterHolder;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ChapterAdapter extends BaseAdapter {
     public static final String TAG = ChapterAdapter.class.getSimpleName();
 
-    private List<Chapter> mChapters;
+    private ArrayList<Chapter> mChapters;
     private Context mContext;
     private LayoutInflater mInflater;
 
-    public ChapterAdapter(Context context, List<Chapter> chapters) {
+    public ChapterAdapter(Context context, ArrayList<Chapter> chapters) {
         mContext = context;
         mChapters = chapters;
         mInflater = LayoutInflater.from(context);
@@ -47,7 +47,7 @@ public class ChapterAdapter extends BaseAdapter {
         Chapter chapter = getItem(position);
         ChapterHolder holder;
         if (convertView == null) {
-            holder = new ChapterHolder(mContext, chapter);
+            holder = new ChapterHolder(mContext, mChapters, chapter);
             holder.initHolder(parent, convertView, position, mInflater);
         } else {
             holder = (ChapterHolder) convertView.getTag();
