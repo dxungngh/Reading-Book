@@ -1,6 +1,7 @@
 package com.daniel.readingbook.book1.holder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.daniel.readingbook.book1.Config;
 import com.daniel.readingbook.book1.R;
+import com.daniel.readingbook.book1.activity.ChapterActivity;
 import com.daniel.readingbook.book1.database.table.Chapter;
 
 public class ChapterHolder extends BaseContentHolder {
@@ -62,6 +65,9 @@ public class ChapterHolder extends BaseContentHolder {
         mRowAlbumLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(mContext, ChapterActivity.class);
+                intent.putExtra(Config.Extras.CHAPTER, mChapter);
+                mContext.startActivity(intent);
             }
         });
     }

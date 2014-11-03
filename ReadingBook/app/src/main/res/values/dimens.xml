@@ -23,4 +23,7 @@
     <dimen name="row_chapter_padding_left">10dp</dimen>
     <dimen name="row_chapter_padding_right">10dp</dimen>
 
+    <!-- chapter -->
+    <dimen name="chapter_title_height">50dp</dimen>
+
 </resources>
