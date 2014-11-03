@@ -13,4 +13,7 @@
     <dimen name="normal_text">15dp</dimen>
     <dimen name="small_text">12dp</dimen>
 
+    <!-- divider -->
+    <dimen name="divider_height">0.5dp</dimen>
+
 </resources>
