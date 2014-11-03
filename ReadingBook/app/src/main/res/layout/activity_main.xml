@@ -9,4 +9,27 @@
         android:layout_height="fill_parent"
         android:src="@drawable/ic_launcher"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/main_read_book"
+            android:text="@string/read_book"
+            style="@style/Button.MainActivity"/>
+
+        <Button
+            android:id="@+id/main_add_book"
+            android:text="@string/add_book"
+            style="@style/Button.MainActivity"/>
+
+        <Button
+            android:id="@+id/main_exit"
+            android:text="@string/exit"
+            style="@style/Button.MainActivity"/>
+    </LinearLayout>
+
 </RelativeLayout>

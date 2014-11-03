@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">ReadingBook</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+    <string name="add_book">Thêm Truyện</string>
+    <string name="exit">Thoát</string>
+    <string name="read_book">Đọc Truyện</string>
 
 </resources>
