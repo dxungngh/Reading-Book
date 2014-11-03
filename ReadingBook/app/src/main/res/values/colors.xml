@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="main_text">#000000</color>
+
+    <!-- button -->
+    <color name="transparent_eighty_percent">#80FFFFFF</color>
+    <color name="transparent_blue_eighty_percent">#8000CC66</color>
 </resources>
