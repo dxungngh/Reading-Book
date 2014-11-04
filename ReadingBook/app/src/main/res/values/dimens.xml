@@ -8,6 +8,9 @@
     <dimen name="main_button_height">50dp</dimen>
     <dimen name="main_button_padding_bottom">10dp</dimen>
 
+    <!-- Index Activity -->
+    <dimen name="index_current_chapter_height">60dp</dimen>
+
     <!-- Text Size -->
     <dimen name="large_text">18dp</dimen>
     <dimen name="normal_text">15dp</dimen>

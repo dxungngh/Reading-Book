@@ -4,10 +4,21 @@
                 android:layout_height="match_parent"
                 tools:context="com.daniel.readingbook.book1.activity.MainActivity">
 
+    <TextView
+        android:id="@+id/index_current_chapter"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/index_current_chapter_height"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/normal_text"
+        android:gravity="center"
+        android:background="@color/transparent_blue_eighty_percent"/>
+
     <ListView
         android:id="@+id/index_list_of_chapters"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@id/index_current_chapter"
         android:dividerHeight="@dimen/divider_height"/>
 
 </RelativeLayout>
