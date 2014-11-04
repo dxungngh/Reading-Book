@@ -60,7 +60,7 @@ public class MyDatabase extends SQLiteAssetHelper {
         String sqlTables = Chapter.TABLE_NAME;
 
         queryBuilder.setTables(sqlTables);
-        Cursor cursor = queryBuilder.query(database, sqlSelect, null, null, null, null, null);
+        Cursor cursor = queryBuilder.query(database, sqlSelect, null, null, null, null, Chapter.Fields.ID);
 
         ArrayList<Chapter> chapters = new ArrayList<Chapter>();
         while (cursor.moveToNext()) {
