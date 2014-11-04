@@ -38,6 +38,21 @@ public class ChapterActivity extends ActionBarActivity {
         mContentWebView.getSettings().setJavaScriptEnabled(false);
         mContentWebView.loadDataWithBaseURL(null, mChapter.getContent(), "text/html", "UTF-8", null);
         mContentWebView.scrollTo(0, 0);
+
+        hideOrShowBackAndNextButton();
+    }
+
+    private void hideOrShowBackAndNextButton() {
+        if (mChapter.getId() == mChapters.size()) {
+            mNextButton.setVisibility(View.INVISIBLE);
+        } else {
+            mNextButton.setVisibility(View.VISIBLE);
+        }
+        if (mChapter.getId() == 1) {
+            mBackButton.setVisibility(View.INVISIBLE);
+        } else {
+            mBackButton.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initData() {
