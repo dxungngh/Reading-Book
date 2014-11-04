@@ -36,7 +36,7 @@ public class ChapterActivity extends ActionBarActivity {
     private void drawComponentView() {
         mTitleTextView.setText(mChapter.getName());
         mContentWebView.getSettings().setJavaScriptEnabled(false);
-        mContentWebView.loadData(mChapter.getContent(), "text/html", "UTF-8");
+        mContentWebView.loadDataWithBaseURL(null, mChapter.getContent(), "text/html", "UTF-8", null);
     }
 
     private void initData() {
