@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.daniel.readingbook.book1.Config;
 import com.daniel.readingbook.book1.R;
+import com.daniel.readingbook.book1.database.MyDatabaseHelper;
 import com.daniel.readingbook.book1.database.table.Chapter;
 import com.daniel.readingbook.book1.widget.ConfirmDialog;
 
@@ -96,6 +97,7 @@ public class ChapterActivity extends ActionBarActivity {
     }
 
     private void drawComponentView() {
+        mChapter.setContent(MyDatabaseHelper.getMyDatabase(this).getContentOfChapter(mChapter.getId()));
         mTitleTextView.setText(mChapter.getName());
         mContentWebView.getSettings().setJavaScriptEnabled(false);
         mContentWebView.loadDataWithBaseURL(null, mChapter.getContent(), "text/html", "UTF-8", null);

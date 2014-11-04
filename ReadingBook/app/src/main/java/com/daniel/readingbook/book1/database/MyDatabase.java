@@ -71,4 +71,24 @@ public class MyDatabase extends SQLiteAssetHelper {
 
         return chapters;
     }
+
+    public String getContentOfChapter(long id) {
+        SQLiteDatabase database = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {Chapter.Fields.CONTENT};
+        String sqlTables = Chapter.TABLE_NAME;
+
+        queryBuilder.setTables(sqlTables);
+        String whereClause = Chapter.Fields.ID + "=" + id;
+        queryBuilder.appendWhere(whereClause);
+        Cursor cursor = queryBuilder.query(database, sqlSelect, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        if (cursor != null) {
+            return cursor.getString(0);
+        }
+        return null;
+    }
 }
