@@ -25,9 +25,7 @@ public class ConfirmDialog extends Dialog {
     public static ConfirmDialog getInstance(Activity activity, String title, String message,
                                             View.OnClickListener yesOnClickListener,
                                             View.OnClickListener noOnClickListener) {
-        if (mConfirmDialog == null) {
-            mConfirmDialog = new ConfirmDialog(activity, title, message, yesOnClickListener, noOnClickListener);
-        }
+        mConfirmDialog = new ConfirmDialog(activity, title, message, yesOnClickListener, noOnClickListener);
         return mConfirmDialog;
     }
 

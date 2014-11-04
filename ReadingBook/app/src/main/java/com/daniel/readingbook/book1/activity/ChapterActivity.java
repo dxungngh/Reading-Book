@@ -3,6 +3,7 @@ package com.daniel.readingbook.book1.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,7 +52,11 @@ public class ChapterActivity extends ActionBarActivity {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                mConfirmDialog.show();
+                try {
+                    mConfirmDialog.show();
+                } catch (Exception e) {
+                    Log.e(TAG, "onBackPressed", e);
+                }
             }
         });
     }
