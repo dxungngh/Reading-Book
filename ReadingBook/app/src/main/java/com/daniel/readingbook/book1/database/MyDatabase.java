@@ -15,7 +15,7 @@ public class MyDatabase extends SQLiteAssetHelper {
     private static final String TAG = MyDatabase.class.getSimpleName();
 
     private static final String DATABASE_NAME = "database.db";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 1;
 
     public MyDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -55,8 +55,7 @@ public class MyDatabase extends SQLiteAssetHelper {
 
         String[] sqlSelect = {
             Chapter.Fields.ID,
-            Chapter.Fields.NAME,
-            Chapter.Fields.CONTENT};
+            Chapter.Fields.NAME};
         String sqlTables = Chapter.TABLE_NAME;
 
         queryBuilder.setTables(sqlTables);
@@ -67,7 +66,6 @@ public class MyDatabase extends SQLiteAssetHelper {
             Chapter chapter = new Chapter();
             chapter.setId(cursor.getLong(0));
             chapter.setName(cursor.getString(1));
-            chapter.setContent(cursor.getString(2));
             chapters.add(chapter);
         }
 
