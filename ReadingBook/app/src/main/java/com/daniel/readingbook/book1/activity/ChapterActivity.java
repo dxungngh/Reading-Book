@@ -1,6 +1,7 @@
 package com.daniel.readingbook.book1.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.daniel.readingbook.book1.Config;
 import com.daniel.readingbook.book1.R;
 import com.daniel.readingbook.book1.database.table.Chapter;
+import com.daniel.readingbook.book1.widget.ConfirmDialog;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,33 @@ public class ChapterActivity extends ActionBarActivity {
     private ImageView mNextButton, mBackButton;
     private int mTextSize;
     private int mSmallestTextSize;
+    private ConfirmDialog mConfirmDialog;
+
+    @Override
+    public void onBackPressed() {
+        mConfirmDialog = ConfirmDialog.getInstance(this,
+            getString(R.string.app_name),
+            getString(R.string.chapter_notification),
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            },
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            }
+        );
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                mConfirmDialog.show();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

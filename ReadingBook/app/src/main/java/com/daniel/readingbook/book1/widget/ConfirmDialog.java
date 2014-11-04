@@ -17,15 +17,16 @@ public class ConfirmDialog extends Dialog {
     private String mMessage, mTitle;
     private TextView mMessageTextView, mTitleTextView;
     private Button mYesButton, mNoButton;
-    private View.OnClickListener mYesOnClickListener;
+    private View.OnClickListener mYesOnClickListener, mNoOnClickListener;
     private String mYesTitle, mNoTitle;
 
     private static final String TAG = ConfirmDialog.class.getSimpleName();
 
     public static ConfirmDialog getInstance(Activity activity, String title, String message,
-                                            View.OnClickListener yesOnClickListener) {
+                                            View.OnClickListener yesOnClickListener,
+                                            View.OnClickListener noOnClickListener) {
         if (mConfirmDialog == null) {
-            mConfirmDialog = new ConfirmDialog(activity, title, message, yesOnClickListener);
+            mConfirmDialog = new ConfirmDialog(activity, title, message, yesOnClickListener, noOnClickListener);
         }
         return mConfirmDialog;
     }
@@ -41,11 +42,13 @@ public class ConfirmDialog extends Dialog {
     }
 
     private ConfirmDialog(Activity activity, String title, String message,
-                          View.OnClickListener yesOnClickListener) {
+                          View.OnClickListener yesOnClickListener,
+                          View.OnClickListener noOnClickListener) {
         super(activity);
         mMessage = message;
         mTitle = title;
         mYesOnClickListener = yesOnClickListener;
+        mNoOnClickListener = noOnClickListener;
     }
 
     private ConfirmDialog(Activity activity, String title, String message,
@@ -93,13 +96,7 @@ public class ConfirmDialog extends Dialog {
     }
 
     private void setNoListener() {
-        mNoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mConfirmDialog = null;
-                dismiss();
-            }
-        });
+        mNoButton.setOnClickListener(mNoOnClickListener);
     }
 
     private void setYesListener() {

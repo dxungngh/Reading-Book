@@ -3,9 +3,10 @@
 
     <string name="app_name">ReadingBook</string>
     <string name="add_book">Thêm Truyện</string>
+    <string name="chapter_notification">Bạn có muốn đánh dấu chương này không?</string>
     <string name="exit">Thoát</string>
     <string name="larger">Chữ lớn hơn</string>
-    <string name="no"></string>Không
+    <string name="no">Không</string>
     <string name="read_book">Đọc Truyện</string>
     <string name="smaller">Chữ nhỏ đi</string>
     <string name="yes">Có</string>

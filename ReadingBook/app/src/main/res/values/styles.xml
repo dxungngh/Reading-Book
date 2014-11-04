@@ -29,7 +29,7 @@
     <style name="Dialog.Title">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/dark_gray</item>
-        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textSize">@dimen/normal_text</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">@dimen/dialog_padding_top</item>
         <item name="android:paddingBottom">@dimen/dialog_padding_bottom</item>
@@ -38,7 +38,7 @@
     <style name="Dialog.Message">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/dark_gray</item>
-        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textSize">@dimen/normal_text</item>
         <item name="android:paddingLeft">@dimen/dialog_padding_left</item>
         <item name="android:paddingRight">@dimen/dialog_padding_right</item>
         <item name="android:paddingTop">@dimen/dialog_padding_top</item>
