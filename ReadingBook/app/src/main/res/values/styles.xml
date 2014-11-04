@@ -24,4 +24,44 @@
         <item name="android:textSize">@dimen/normal_text</item>
     </style>
 
+    <style name="Dialog"/>
+
+    <style name="Dialog.Title">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">@dimen/dialog_padding_top</item>
+        <item name="android:paddingBottom">@dimen/dialog_padding_bottom</item>
+    </style>
+
+    <style name="Dialog.Message">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:paddingLeft">@dimen/dialog_padding_left</item>
+        <item name="android:paddingRight">@dimen/dialog_padding_right</item>
+        <item name="android:paddingTop">@dimen/dialog_padding_top</item>
+        <item name="android:paddingBottom">@dimen/dialog_padding_bottom</item>
+    </style>
+
+    <style name="Dialog.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/dialog_button_height</item>
+        <item name="android:textSize">@dimen/normal_text</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="Dialog.Button.LeftRightCorner" parent="Dialog.Button">
+        <item name="android:background">@drawable/bg_dialog_corner_left_right_button</item>
+    </style>
+
+    <style name="Dialog.Button.LeftCorner" parent="Dialog.Button">
+        <item name="android:background">@drawable/bg_dialog_corner_left_button</item>
+    </style>
+
+    <style name="Dialog.Button.RightCorner" parent="Dialog.Button">
+        <item name="android:background">@drawable/bg_dialog_corner_right_button</item>
+    </style>
+
 </resources>

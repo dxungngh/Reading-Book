@@ -5,7 +5,9 @@
     <string name="add_book">Thêm Truyện</string>
     <string name="exit">Thoát</string>
     <string name="larger">Chữ lớn hơn</string>
+    <string name="no"></string>Không
     <string name="read_book">Đọc Truyện</string>
     <string name="smaller">Chữ nhỏ đi</string>
+    <string name="yes">Có</string>
 
 </resources>

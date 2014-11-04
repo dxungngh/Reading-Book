@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="@dimen/divider_height"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dialog">
+
+
+    <TextView
+        android:id="@+id/dialog_confirm_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="@string/app_name"
+        style="@style/Dialog.Title"/>
+
+    <TextView
+        android:id="@+id/dialog_confirm_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_confirm_title"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        style="@style/Dialog.Message"/>
+
+    <View
+        android:id="@+id/dialog_confirm_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"
+        android:layout_below="@id/dialog_confirm_message"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/dialog_confirm_divider"
+        android:layout_centerHorizontal="true"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/dialog_confirm_no"
+                android:text="@string/no"
+                style="@style/Dialog.Button.LeftCorner"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/dialog_confirm_yes"
+                android:text="@string/yes"
+                style="@style/Dialog.Button.RightCorner"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
