@@ -10,7 +10,7 @@
         android:layout_height="@dimen/index_current_chapter_height"
         android:layout_alignParentTop="true"
         android:textStyle="bold"
-        android:textSize="@dimen/normal_text"
+        android:textSize="@dimen/large_text"
         android:gravity="center"
         android:background="@color/transparent_blue_eighty_percent"/>
 

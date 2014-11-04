@@ -20,7 +20,7 @@
     <style name="Title"/>
 
     <style name="Title.ChapterName">
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">@color/chapter_name</item>
         <item name="android:textSize">@dimen/normal_text</item>
     </style>
 

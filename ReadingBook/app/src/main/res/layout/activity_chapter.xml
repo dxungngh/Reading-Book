@@ -9,9 +9,10 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/chapter_title_height"
         android:gravity="center"
-        android:textColor="@color/blue"
+        android:textColor="@color/black"
         android:textSize="@dimen/large_text"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:background="@color/transparent_blue_eighty_percent"/>
 
     <View
         android:id="@+id/chapter_divider"
