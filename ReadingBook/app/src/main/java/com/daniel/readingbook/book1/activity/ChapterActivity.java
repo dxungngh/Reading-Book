@@ -2,7 +2,10 @@ package com.daniel.readingbook.book1.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +24,8 @@ public class ChapterActivity extends ActionBarActivity {
     private Chapter mChapter;
     private ArrayList<Chapter> mChapters;
     private ImageView mNextButton, mBackButton;
+    private int mTextSize;
+    private int mSmallestTextSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,35 @@ public class ChapterActivity extends ActionBarActivity {
         setListeners();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.chapter, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.chapter_larger:
+                mTextSize += 2;
+                setTextSize();
+                return true;
+            case R.id.chapter_smaller:
+                mTextSize -= 2;
+                mTextSize = Math.max(mTextSize, mSmallestTextSize);
+                setTextSize();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void drawComponentView() {
         mTitleTextView.setText(mChapter.getName());
         mContentWebView.getSettings().setJavaScriptEnabled(false);
         mContentWebView.loadDataWithBaseURL(null, mChapter.getContent(), "text/html", "UTF-8", null);
         mContentWebView.scrollTo(0, 0);
+        mContentWebView.getSettings().setDefaultFontSize(mTextSize);
 
         hideOrShowBackAndNextButton();
     }
@@ -58,6 +87,21 @@ public class ChapterActivity extends ActionBarActivity {
     private void initData() {
         mChapter = (Chapter) getIntent().getSerializableExtra(Config.Extras.CHAPTER);
         mChapters = (ArrayList<Chapter>) getIntent().getSerializableExtra(Config.Extras.LIST_OF_CHAPTERS);
+        mTextSize = (int) getResources().getDimension(R.dimen.default_text);
+        mSmallestTextSize = (int) getResources().getDimension(R.dimen.smallest_text);
+    }
+
+    private void setBackListener() {
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int backPosition = (int) mChapter.getId() - 2;
+                if (backPosition >= 0) {
+                    mChapter = mChapters.get(backPosition);
+                    drawComponentView();
+                }
+            }
+        });
     }
 
     private void setComponentViews() {
@@ -85,16 +129,8 @@ public class ChapterActivity extends ActionBarActivity {
         });
     }
 
-    private void setBackListener() {
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int backPosition = (int) mChapter.getId() - 2;
-                if (backPosition >= 0) {
-                    mChapter = mChapters.get(backPosition);
-                    drawComponentView();
-                }
-            }
-        });
+    private void setTextSize() {
+        final WebSettings webSettings = mContentWebView.getSettings();
+        webSettings.setDefaultFontSize(mTextSize);
     }
 }

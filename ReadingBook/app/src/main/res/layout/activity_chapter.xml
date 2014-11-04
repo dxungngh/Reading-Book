@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/chapter_title_height"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:textSize="@dimen/large_text"
         android:textStyle="bold"/>
 

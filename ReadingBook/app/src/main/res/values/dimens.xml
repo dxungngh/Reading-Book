@@ -12,6 +12,8 @@
     <dimen name="large_text">18dp</dimen>
     <dimen name="normal_text">15dp</dimen>
     <dimen name="small_text">12dp</dimen>
+    <dimen name="default_text">10dp</dimen>
+    <dimen name="smallest_text">6dp</dimen>
 
     <!-- divider -->
     <dimen name="divider_height">0.5dp</dimen>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/chapter_larger"
+        android:title="@string/larger"/>
+    <item
+        android:id="@+id/chapter_smaller"
+        android:title="@string/smaller"/>
+</menu>
