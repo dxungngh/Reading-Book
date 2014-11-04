@@ -1,5 +1,7 @@
 package com.daniel.readingbook.book1.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
@@ -40,6 +42,7 @@ public class ChapterActivity extends ActionBarActivity {
             new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    savePositionOfChapter();
                     finish();
                 }
             },
@@ -168,5 +171,12 @@ public class ChapterActivity extends ActionBarActivity {
     private void setTextSize() {
         final WebSettings webSettings = mContentWebView.getSettings();
         webSettings.setDefaultFontSize(mTextSize);
+    }
+
+    private void savePositionOfChapter() {
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putLong(getString(R.string.chapter_id), mChapter.getId());
+        editor.commit();
     }
 }
