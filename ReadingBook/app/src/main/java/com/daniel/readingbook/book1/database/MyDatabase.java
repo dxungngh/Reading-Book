@@ -89,6 +89,6 @@ public class MyDatabase extends SQLiteAssetHelper {
         if (cursor != null) {
             return cursor.getString(0);
         }
-        return null;
+        return "";
     }
 }
