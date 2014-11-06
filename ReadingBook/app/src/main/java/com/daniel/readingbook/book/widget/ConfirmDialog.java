@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book1.widget;
+package com.daniel.readingbook.book.widget;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -10,7 +10,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.daniel.readingbook.book1.R;
+import com.daniel.readingbook.book.R;
 
 public class ConfirmDialog extends Dialog {
     private static ConfirmDialog mConfirmDialog;

@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book1;
+package com.daniel.readingbook.book;
 
 public class Config {
     public class Extras {

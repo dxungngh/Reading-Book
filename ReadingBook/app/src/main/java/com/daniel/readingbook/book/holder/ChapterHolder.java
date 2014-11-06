@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book1.holder;
+package com.daniel.readingbook.book.holder;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.daniel.readingbook.book1.Config;
-import com.daniel.readingbook.book1.R;
-import com.daniel.readingbook.book1.activity.ChapterActivity;
-import com.daniel.readingbook.book1.database.table.Chapter;
+import com.daniel.readingbook.book.Config;
+import com.daniel.readingbook.book.R;
+import com.daniel.readingbook.book.activity.ChapterActivity;
+import com.daniel.readingbook.book.database.table.Chapter;
 
 import java.util.ArrayList;
 

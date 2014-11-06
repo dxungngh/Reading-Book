@@ -1,10 +1,10 @@
-package com.daniel.readingbook.book1.activity;
+package com.daniel.readingbook.book.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,15 +14,15 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daniel.readingbook.book1.Config;
-import com.daniel.readingbook.book1.R;
-import com.daniel.readingbook.book1.database.MyDatabaseHelper;
-import com.daniel.readingbook.book1.database.table.Chapter;
-import com.daniel.readingbook.book1.widget.ConfirmDialog;
+import com.daniel.readingbook.book.Config;
+import com.daniel.readingbook.book.R;
+import com.daniel.readingbook.book.database.MyDatabaseHelper;
+import com.daniel.readingbook.book.database.table.Chapter;
+import com.daniel.readingbook.book.widget.ConfirmDialog;
 
 import java.util.ArrayList;
 
-public class ChapterActivity extends ActionBarActivity {
+public class ChapterActivity extends Activity {
     private static final String TAG = ChapterActivity.class.getSimpleName();
 
     private TextView mTitleTextView;
@@ -37,21 +37,21 @@ public class ChapterActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         mConfirmDialog = ConfirmDialog.getInstance(this,
-            getString(R.string.app_name),
-            getString(R.string.chapter_notification),
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    savePositionOfChapter();
-                    finish();
+                getString(R.string.app_name),
+                getString(R.string.chapter_notification),
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        savePositionOfChapter();
+                        finish();
+                    }
+                },
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
                 }
-            },
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            }
         );
         new Handler().post(new Runnable() {
             @Override

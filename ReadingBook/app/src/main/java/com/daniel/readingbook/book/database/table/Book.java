@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book1.database.table;
+package com.daniel.readingbook.book.database.table;
 
 import java.io.Serializable;
 

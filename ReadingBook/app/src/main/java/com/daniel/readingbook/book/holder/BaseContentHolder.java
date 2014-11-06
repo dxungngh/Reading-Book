@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book1.holder;
+package com.daniel.readingbook.book.holder;
 
 import android.view.LayoutInflater;
 import android.view.View;

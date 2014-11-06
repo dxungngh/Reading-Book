@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book1.database;
+package com.daniel.readingbook.book.database;
 
 import android.content.Context;
 

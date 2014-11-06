@@ -5,7 +5,7 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="Button"/>
+    <style name="Button" />
 
     <style name="Button.MainActivity">
         <item name="android:layout_width">@dimen/main_button_width</item>
@@ -17,14 +17,14 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="Title"/>
+    <style name="Title" />
 
     <style name="Title.ChapterName">
         <item name="android:textColor">@color/chapter_name</item>
         <item name="android:textSize">@dimen/normal_text</item>
     </style>
 
-    <style name="Dialog"/>
+    <style name="Dialog" />
 
     <style name="Dialog.Title">
         <item name="android:gravity">center</item>

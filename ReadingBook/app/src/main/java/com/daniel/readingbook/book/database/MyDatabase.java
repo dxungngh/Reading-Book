@@ -1,12 +1,12 @@
-package com.daniel.readingbook.book1.database;
+package com.daniel.readingbook.book.database;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
-import com.daniel.readingbook.book1.database.table.Book;
-import com.daniel.readingbook.book1.database.table.Chapter;
+import com.daniel.readingbook.book.database.table.Book;
+import com.daniel.readingbook.book.database.table.Chapter;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;

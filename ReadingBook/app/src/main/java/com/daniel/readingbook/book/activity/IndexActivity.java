@@ -1,20 +1,20 @@
-package com.daniel.readingbook.book1.activity;
+package com.daniel.readingbook.book.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.daniel.readingbook.book1.R;
-import com.daniel.readingbook.book1.adapter.ChapterAdapter;
-import com.daniel.readingbook.book1.database.MyDatabaseHelper;
-import com.daniel.readingbook.book1.database.table.Chapter;
+import com.daniel.readingbook.book.R;
+import com.daniel.readingbook.book.adapter.ChapterAdapter;
+import com.daniel.readingbook.book.database.MyDatabaseHelper;
+import com.daniel.readingbook.book.database.table.Chapter;
 
 import java.util.ArrayList;
 
-public class IndexActivity extends ActionBarActivity {
+public class IndexActivity extends Activity {
     private static final String TAG = IndexActivity.class.getSimpleName();
 
     private ChapterAdapter mAdapter;
