@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ReadingBook</string>
+    <string name="app_name">365 NGÀY HÔN NHÂN</string>
     <string name="add_book">Thêm Truyện</string>
     <string name="chapter_id">chapter_id</string>
     <string name="chapter_notification">Bạn có muốn đánh dấu chương này không?</string>

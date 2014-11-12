@@ -102,6 +102,8 @@ public class ChapterActivity extends Activity {
     }
 
     private void drawComponentView() {
+        Log.i(TAG, mChapter.getName());
+
         mChapter.setContent(MyDatabaseHelper.getMyDatabase(this).getContentOfChapter(mChapter.getId()));
         mTitleTextView.setText(mChapter.getName());
         mContentWebView.getSettings().setJavaScriptEnabled(false);
