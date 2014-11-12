@@ -1,32 +1,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.daniel.readingbook.book.activity.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.daniel.readingbook.book.activity.MainActivity">
 
     <TextView
         android:id="@+id/chapter_title"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/chapter_title_height"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/linen"
         android:textSize="@dimen/large_text"
         android:textStyle="bold"
-        android:background="@color/transparent_blue_eighty_percent"/>
+        android:background="@color/violet" />
 
     <View
         android:id="@+id/chapter_divider"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/divider_height"
         android:background="@color/dark_gray"
-        android:layout_below="@id/chapter_title"/>
+        android:layout_below="@id/chapter_title" />
 
     <WebView
         android:id="@+id/chapter_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/chapter_divider"
-        android:background="@color/white"/>
+        android:background="@color/white" />
 
     <ImageView
         android:id="@+id/chapter_next"
@@ -35,7 +35,7 @@
         android:src="@drawable/ic_next"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:paddingBottom="@dimen/chapter_button_padding_bottom"/>
+        android:paddingBottom="@dimen/chapter_button_padding_bottom" />
 
     <ImageView
         android:id="@+id/chapter_back"
@@ -44,6 +44,6 @@
         android:src="@drawable/ic_back"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:paddingBottom="@dimen/chapter_button_padding_bottom"/>
+        android:paddingBottom="@dimen/chapter_button_padding_bottom" />
 
 </RelativeLayout>

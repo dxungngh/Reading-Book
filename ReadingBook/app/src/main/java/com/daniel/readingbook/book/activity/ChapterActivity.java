@@ -43,12 +43,14 @@ public class ChapterActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         savePositionOfChapter();
+                        mConfirmDialog.dismiss();
                         finish();
                     }
                 },
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        mConfirmDialog.dismiss();
                         finish();
                     }
                 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,21 +34,31 @@ public class IndexActivity extends Activity {
         drawComponentView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        drawCurrentChapter();
+    }
+
     private void drawComponentView() {
         mAdapter = new ChapterAdapter(this, mChapters);
         mChaptersListView.setAdapter(mAdapter);
+    }
+
+    private void drawCurrentChapter() {
+        getCurrentChapter();
         mCurrentChapterTextView.setText(mCurrentChapter.getName());
     }
 
     private void getCurrentChapter() {
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         long chapterId = sharedPref.getInt(getString(R.string.chapter_id), 1);
+        Log.i(TAG, "chapter id : " + chapterId);
         mCurrentChapter = mChapters.get((int) chapterId - 1);
     }
 
     private void initData() {
         mChapters = MyDatabaseHelper.getMyDatabase(this).getAllChapters();
-        getCurrentChapter();
     }
 
     private void setComponentView() {

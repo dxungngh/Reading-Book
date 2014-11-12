@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.daniel.readingbook.book.activity.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.daniel.readingbook.book.activity.MainActivity">
 
     <TextView
         android:id="@+id/index_current_chapter"
@@ -11,14 +11,15 @@
         android:layout_alignParentTop="true"
         android:textStyle="bold"
         android:textSize="@dimen/large_text"
+        android:textColor="@color/linen"
         android:gravity="center"
-        android:background="@color/transparent_blue_eighty_percent"/>
+        android:background="@color/violet" />
 
     <ListView
         android:id="@+id/index_list_of_chapters"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/index_current_chapter"
-        android:dividerHeight="@dimen/divider_height"/>
+        android:dividerHeight="@dimen/divider_height" />
 
 </RelativeLayout>

@@ -1,13 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.daniel.readingbook.book.activity.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.daniel.readingbook.book.activity.MainActivity">
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/ic_launcher"/>
+        android:src="@drawable/bg"
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,17 +20,17 @@
         <Button
             android:id="@+id/main_read_book"
             android:text="@string/read_book"
-            style="@style/Button.MainActivity"/>
+            style="@style/Button.MainActivity" />
 
         <Button
             android:id="@+id/main_add_book"
             android:text="@string/add_book"
-            style="@style/Button.MainActivity"/>
+            style="@style/Button.MainActivity" />
 
         <Button
             android:id="@+id/main_exit"
             android:text="@string/exit"
-            style="@style/Button.MainActivity"/>
+            style="@style/Button.MainActivity" />
     </LinearLayout>
 
 </RelativeLayout>
