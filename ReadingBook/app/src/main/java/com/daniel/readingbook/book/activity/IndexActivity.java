@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -51,9 +50,9 @@ public class IndexActivity extends Activity {
     }
 
     private void getCurrentChapter() {
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        long chapterId = sharedPref.getInt(getString(R.string.chapter_id), 1);
-        Log.i(TAG, "chapter id : " + chapterId);
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+        long chapterId = sharedPref.getLong(getString(R.string.chapter_id), 1);
         mCurrentChapter = mChapters.get((int) chapterId - 1);
     }
 

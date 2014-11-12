@@ -176,7 +176,8 @@ public class ChapterActivity extends Activity {
     }
 
     private void savePositionOfChapter() {
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putLong(getString(R.string.chapter_id), mChapter.getId());
         editor.commit();
