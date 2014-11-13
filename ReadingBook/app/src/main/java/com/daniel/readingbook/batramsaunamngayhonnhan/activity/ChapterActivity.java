@@ -3,6 +3,8 @@ package com.daniel.readingbook.batramsaunamngayhonnhan.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -19,6 +21,7 @@ import com.daniel.readingbook.batramsaunamngayhonnhan.R;
 import com.daniel.readingbook.batramsaunamngayhonnhan.database.MyDatabaseHelper;
 import com.daniel.readingbook.batramsaunamngayhonnhan.database.table.Chapter;
 import com.daniel.readingbook.batramsaunamngayhonnhan.widget.ConfirmDialog;
+import com.daniel.readingbook.batramsaunamngayhonnhan.widget.ErrorDialog;
 import com.startapp.android.publish.StartAppAd;
 import com.startapp.android.publish.StartAppSDK;
 
@@ -35,6 +38,7 @@ public class ChapterActivity extends Activity {
     private int mTextSize;
     private int mSmallestTextSize;
     private ConfirmDialog mConfirmDialog;
+    private ErrorDialog mErrorDialog;
     private StartAppAd mStartAppAd = new StartAppAd(this);
 
     @Override
@@ -122,14 +126,28 @@ public class ChapterActivity extends Activity {
     }
 
     private void drawComponentView() {
-        Log.i(TAG, mChapter.getName());
-
-        mChapter.setContent(MyDatabaseHelper.getMyDatabase(this).getContentOfChapter(mChapter.getId()));
         mTitleTextView.setText(mChapter.getName());
-        mContentWebView.getSettings().setJavaScriptEnabled(false);
-        mContentWebView.loadDataWithBaseURL(null, mChapter.getContent(), "text/html", "UTF-8", null);
-        mContentWebView.scrollTo(0, 0);
-        mContentWebView.getSettings().setDefaultFontSize(mTextSize);
+        if (isOnline()) {
+            mContentWebView.setVisibility(View.VISIBLE);
+            mChapter.setContent(MyDatabaseHelper.getMyDatabase(this).getContentOfChapter(mChapter.getId()));
+            mContentWebView.getSettings().setJavaScriptEnabled(false);
+            mContentWebView.loadDataWithBaseURL(null, mChapter.getContent(), "text/html", "UTF-8", null);
+            mContentWebView.scrollTo(0, 0);
+            mContentWebView.getSettings().setDefaultFontSize(mTextSize);
+        } else {
+            mContentWebView.setVisibility(View.INVISIBLE);
+            mErrorDialog = ErrorDialog.getInstance(this,
+                    getString(R.string.app_name),
+                    getString(R.string.error_no_internet),
+                    getString(R.string.close),
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mErrorDialog.dismiss();
+                        }
+                    });
+            mErrorDialog.show();
+        }
 
         hideOrShowBackAndNextButton();
     }
@@ -203,5 +221,15 @@ public class ChapterActivity extends Activity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putLong(getString(R.string.chapter_id), mChapter.getId());
         editor.commit();
+    }
+
+    private boolean isOnline() {
+        final ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
+        if (activeNetwork != null && activeNetwork.isConnected()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

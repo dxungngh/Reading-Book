@@ -6,8 +6,10 @@
     <string name="add_book">Thêm Truyện</string>
     <string name="chapter_id">chapter_id</string>
     <string name="chapter_notification">Bạn có muốn đánh dấu chương này không?</string>
+    <string name="close">Đóng</string>
     <string name="exit">Thoát</string>
     <string name="exit_notification">Bạn hãy dành chút thời gian để đánh giá cho ứng dụng nhé ^^. Xin cảm ơn.</string>
+    <string name="error_no_internet">Không có kết nối internet. Mong các bạn kiểm tra lại ^^.</string>
     <string name="introduction">Giới Thiệu</string>
     <string name="larger">Chữ lớn hơn</string>
     <string name="no">Không</string>
