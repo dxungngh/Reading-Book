@@ -1,8 +1,11 @@
 package com.daniel.readingbook.book.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 
 import com.daniel.readingbook.book.R;
 import com.daniel.readingbook.book.database.MyDatabaseHelper;
@@ -12,8 +15,9 @@ public class IntroductionActivity extends Activity {
     private static final String TAG = IntroductionActivity.class.getSimpleName();
 
     private Book mBook;
-    private WebView mIntroductionContentWebView;
     private String mContent;
+    private WebView mIntroductionContentWebView;
+    private Button mReadBookButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class IntroductionActivity extends Activity {
         initData();
         setComponentView();
         drawComponentView();
+        setReadBookListener();
     }
 
     private void drawComponentView() {
@@ -36,10 +41,22 @@ public class IntroductionActivity extends Activity {
 
     private void initData() {
         mBook = MyDatabaseHelper.getMyDatabase(this).getBook();
-        mContent = mBook.getAuthor() + "<br/>" + mBook.getType() + "<br/><br/><br/>" + mBook.getOverview();
+        mContent = getString(R.string.author) + mBook.getAuthor() + "<br/>" + getString(R.string.type) + mBook.getType() + "<br/><br/><br/>" + mBook.getOverview();
     }
 
     private void setComponentView() {
         mIntroductionContentWebView = (WebView) findViewById(R.id.introduction_content);
+        mReadBookButton = (Button) findViewById(R.id.introduction_read_book);
+    }
+
+    private void setReadBookListener() {
+        mReadBookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IntroductionActivity.this, IndexActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

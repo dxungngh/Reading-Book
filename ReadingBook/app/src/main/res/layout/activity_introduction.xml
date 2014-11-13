@@ -21,6 +21,18 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/introduction_title"
-        android:background="@color/yellow" />
+        android:layout_above="@+id/introduction_read_book" />
+
+    <Button
+        android:id="@id/introduction_read_book"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/index_current_chapter_height"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/large_text"
+        android:textColor="@color/linen"
+        android:text="@string/read_book"
+        android:gravity="center"
+        android:background="@drawable/bg_current_chapter_button" />
 
 </RelativeLayout>
