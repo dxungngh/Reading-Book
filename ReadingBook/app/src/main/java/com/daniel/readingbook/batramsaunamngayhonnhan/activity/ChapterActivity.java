@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book.activity;
+package com.daniel.readingbook.batramsaunamngayhonnhan.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,11 +14,13 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daniel.readingbook.book.Config;
-import com.daniel.readingbook.book.R;
-import com.daniel.readingbook.book.database.MyDatabaseHelper;
-import com.daniel.readingbook.book.database.table.Chapter;
-import com.daniel.readingbook.book.widget.ConfirmDialog;
+import com.daniel.readingbook.batramsaunamngayhonnhan.Config;
+import com.daniel.readingbook.batramsaunamngayhonnhan.R;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.MyDatabaseHelper;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.table.Chapter;
+import com.daniel.readingbook.batramsaunamngayhonnhan.widget.ConfirmDialog;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
 
 import java.util.ArrayList;
 
@@ -33,6 +35,7 @@ public class ChapterActivity extends Activity {
     private int mTextSize;
     private int mSmallestTextSize;
     private ConfirmDialog mConfirmDialog;
+    private StartAppAd mStartAppAd = new StartAppAd(this);
 
     @Override
     public void onBackPressed() {
@@ -70,6 +73,7 @@ public class ChapterActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addStartApp();
         setContentView(R.layout.activity_chapter);
 
         initData();
@@ -99,6 +103,22 @@ public class ChapterActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mStartAppAd.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mStartAppAd.onResume();
+    }
+
+    private void addStartApp() {
+        StartAppSDK.init(this, Config.App.DEVELOPER_ID, Config.App.APP_ID, true);
     }
 
     private void drawComponentView() {

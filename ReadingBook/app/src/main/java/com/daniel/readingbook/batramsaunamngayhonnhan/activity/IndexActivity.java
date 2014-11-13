@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book.activity;
+package com.daniel.readingbook.batramsaunamngayhonnhan.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,11 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.daniel.readingbook.book.Config;
-import com.daniel.readingbook.book.R;
-import com.daniel.readingbook.book.adapter.ChapterAdapter;
-import com.daniel.readingbook.book.database.MyDatabaseHelper;
-import com.daniel.readingbook.book.database.table.Chapter;
+import com.daniel.readingbook.batramsaunamngayhonnhan.Config;
+import com.daniel.readingbook.batramsaunamngayhonnhan.R;
+import com.daniel.readingbook.batramsaunamngayhonnhan.adapter.ChapterAdapter;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.MyDatabaseHelper;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.table.Chapter;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
 
 import java.util.ArrayList;
 
@@ -25,10 +27,12 @@ public class IndexActivity extends Activity {
     private ListView mChaptersListView;
     private Chapter mCurrentChapter;
     private Button mCurrentChapterButton;
+    private StartAppAd mStartAppAd = new StartAppAd(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addStartApp();
         setContentView(R.layout.activity_index);
 
         initData();
@@ -38,9 +42,20 @@ public class IndexActivity extends Activity {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        mStartAppAd.onPause();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
+        mStartAppAd.onResume();
         drawCurrentChapter();
+    }
+
+    private void addStartApp() {
+        StartAppSDK.init(this, Config.App.DEVELOPER_ID, Config.App.APP_ID, true);
     }
 
     private void drawComponentView() {

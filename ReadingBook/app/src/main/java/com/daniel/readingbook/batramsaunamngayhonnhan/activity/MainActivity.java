@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book.activity;
+package com.daniel.readingbook.batramsaunamngayhonnhan.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,15 +9,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.daniel.readingbook.book.Config;
-import com.daniel.readingbook.book.R;
-import com.daniel.readingbook.book.widget.ConfirmDialog;
+import com.daniel.readingbook.batramsaunamngayhonnhan.Config;
+import com.daniel.readingbook.batramsaunamngayhonnhan.R;
+import com.daniel.readingbook.batramsaunamngayhonnhan.widget.ConfirmDialog;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
 
 public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private Button mIntroductionButton, mReadBookButton, mAddBookButton, mExitButton;
     private ConfirmDialog mConfirmDialog;
+    private StartAppAd mStartAppAd = new StartAppAd(this);
 
     @Override
     public void onBackPressed() {
@@ -36,6 +39,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         mConfirmDialog.dismiss();
+                        mStartAppAd.onBackPressed();
                         finish();
                     }
                 }
@@ -55,9 +59,26 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addStartApp();
         setContentView(R.layout.activity_main);
         setComponentViews();
         setListeners();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mStartAppAd.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mStartAppAd.onResume();
+    }
+
+    private void addStartApp() {
+        StartAppSDK.init(this, Config.App.DEVELOPER_ID, Config.App.APP_ID, true);
     }
 
     private void openStore(String link) {
@@ -94,6 +115,7 @@ public class MainActivity extends Activity {
         mExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mStartAppAd.onBackPressed();
                 finish();
             }
         });

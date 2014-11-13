@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.daniel.readingbook.book.activity.MainActivity">
+    tools:context="com.daniel.readingbook.batramsaunamngayhonnhan.activity.MainActivity">
 
     <TextView
         android:id="@+id/chapter_title"
@@ -26,7 +26,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/chapter_divider"
-        android:background="@color/white" />
+        android:background="@color/white"
+        android:layout_above="@+id/startAppBanner" />
 
     <ImageView
         android:id="@+id/chapter_next"
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_next"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/startAppBanner"
         android:paddingBottom="@dimen/chapter_button_padding_bottom" />
 
     <ImageView
@@ -43,7 +44,14 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/startAppBanner"
         android:paddingBottom="@dimen/chapter_button_padding_bottom" />
+
+    <com.startapp.android.publish.banner.Banner
+        android:id="@id/startAppBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

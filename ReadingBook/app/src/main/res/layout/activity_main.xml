@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.daniel.readingbook.book.activity.MainActivity">
+    tools:context="com.daniel.readingbook.batramsaunamngayhonnhan.activity.MainActivity">
 
     <ImageView
         android:layout_width="fill_parent"
@@ -37,5 +37,11 @@
             android:text="@string/exit"
             style="@style/Button.MainActivity" />
     </LinearLayout>
+
+    <com.startapp.android.publish.banner.Banner
+        android:id="@+id/startAppBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

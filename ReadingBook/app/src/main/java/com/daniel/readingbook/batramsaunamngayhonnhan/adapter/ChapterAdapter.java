@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book.adapter;
+package com.daniel.readingbook.batramsaunamngayhonnhan.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.daniel.readingbook.book.database.table.Chapter;
-import com.daniel.readingbook.book.holder.ChapterHolder;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.table.Chapter;
+import com.daniel.readingbook.batramsaunamngayhonnhan.holder.ChapterHolder;
 
 import java.util.ArrayList;
 

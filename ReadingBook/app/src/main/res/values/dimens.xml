@@ -30,7 +30,7 @@
 
     <!-- chapter -->
     <dimen name="chapter_title_height">50dp</dimen>
-    <dimen name="chapter_button_padding_bottom">60dp</dimen>
+    <dimen name="chapter_button_padding_bottom">10dp</dimen>
 
     <!-- dialog -->
     <dimen name="dialog_width">300dp</dimen>

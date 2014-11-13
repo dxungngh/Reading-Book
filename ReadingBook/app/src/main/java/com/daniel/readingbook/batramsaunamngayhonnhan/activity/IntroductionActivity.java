@@ -1,4 +1,4 @@
-package com.daniel.readingbook.book.activity;
+package com.daniel.readingbook.batramsaunamngayhonnhan.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,9 +7,12 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 
-import com.daniel.readingbook.book.R;
-import com.daniel.readingbook.book.database.MyDatabaseHelper;
-import com.daniel.readingbook.book.database.table.Book;
+import com.daniel.readingbook.batramsaunamngayhonnhan.Config;
+import com.daniel.readingbook.batramsaunamngayhonnhan.R;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.MyDatabaseHelper;
+import com.daniel.readingbook.batramsaunamngayhonnhan.database.table.Book;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
 
 public class IntroductionActivity extends Activity {
     private static final String TAG = IntroductionActivity.class.getSimpleName();
@@ -18,16 +21,34 @@ public class IntroductionActivity extends Activity {
     private String mContent;
     private WebView mIntroductionContentWebView;
     private Button mReadBookButton;
+    private StartAppAd mStartAppAd = new StartAppAd(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addStartApp();
         setContentView(R.layout.activity_introduction);
 
         initData();
         setComponentView();
         drawComponentView();
         setReadBookListener();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mStartAppAd.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mStartAppAd.onResume();
+    }
+
+    private void addStartApp() {
+        StartAppSDK.init(this, Config.App.DEVELOPER_ID, Config.App.APP_ID, true);
     }
 
     private void drawComponentView() {
