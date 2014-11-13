@@ -2,11 +2,14 @@ package com.daniel.readingbook.book.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.daniel.readingbook.book.Config;
 import com.daniel.readingbook.book.R;
 import com.daniel.readingbook.book.adapter.ChapterAdapter;
 import com.daniel.readingbook.book.database.MyDatabaseHelper;
@@ -21,7 +24,7 @@ public class IndexActivity extends Activity {
     private ArrayList<Chapter> mChapters;
     private ListView mChaptersListView;
     private Chapter mCurrentChapter;
-    private TextView mCurrentChapterTextView;
+    private Button mCurrentChapterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class IndexActivity extends Activity {
         initData();
         setComponentView();
         drawComponentView();
+        setCurrentChapterListener();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class IndexActivity extends Activity {
 
     private void drawCurrentChapter() {
         getCurrentChapter();
-        mCurrentChapterTextView.setText(mCurrentChapter.getName());
+        mCurrentChapterButton.setText(mCurrentChapter.getName());
     }
 
     private void getCurrentChapter() {
@@ -62,6 +66,18 @@ public class IndexActivity extends Activity {
 
     private void setComponentView() {
         mChaptersListView = (ListView) findViewById(R.id.index_list_of_chapters);
-        mCurrentChapterTextView = (TextView) findViewById(R.id.index_current_chapter);
+        mCurrentChapterButton = (Button) findViewById(R.id.index_current_chapter);
+    }
+
+    private void setCurrentChapterListener() {
+        mCurrentChapterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IndexActivity.this, ChapterActivity.class);
+                intent.putExtra(Config.Extras.CHAPTER, mCurrentChapter);
+                intent.putExtra(Config.Extras.LIST_OF_CHAPTERS, mChapters);
+                startActivity(intent);
+            }
+        });
     }
 }

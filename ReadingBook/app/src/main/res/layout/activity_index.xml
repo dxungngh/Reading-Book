@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.daniel.readingbook.book.activity.MainActivity">
 
-    <TextView
+    <Button
         android:id="@+id/index_current_chapter"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/index_current_chapter_height"
@@ -13,7 +13,7 @@
         android:textSize="@dimen/large_text"
         android:textColor="@color/linen"
         android:gravity="center"
-        android:background="@color/violet" />
+        android:background="@drawable/bg_current_chapter_button" />
 
     <ListView
         android:id="@+id/index_list_of_chapters"
