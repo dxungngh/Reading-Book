@@ -16,7 +16,7 @@ import com.daniel.readingbook.book.widget.ConfirmDialog;
 public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private Button mReadBookButton, mAddBookButton, mExitButton;
+    private Button mIntroductionButton, mReadBookButton, mAddBookButton, mExitButton;
     private ConfirmDialog mConfirmDialog;
 
     @Override
@@ -68,12 +68,14 @@ public class MainActivity extends Activity {
     }
 
     private void setComponentViews() {
+        mIntroductionButton = (Button) findViewById(R.id.main_introduction);
         mReadBookButton = (Button) findViewById(R.id.main_read_book);
         mAddBookButton = (Button) findViewById(R.id.main_add_book);
         mExitButton = (Button) findViewById(R.id.main_exit);
     }
 
     private void setListeners() {
+        setIntroductionListener();
         setReadBookListener();
         setAddBookListener();
         setExitListener();
@@ -88,21 +90,31 @@ public class MainActivity extends Activity {
         });
     }
 
+    private void setExitListener() {
+        mExitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void setIntroductionListener() {
+        mIntroductionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, IntroductionActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     private void setReadBookListener() {
         mReadBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, IndexActivity.class);
                 startActivity(intent);
-            }
-        });
-    }
-
-    private void setExitListener() {
-        mExitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
             }
         });
     }
